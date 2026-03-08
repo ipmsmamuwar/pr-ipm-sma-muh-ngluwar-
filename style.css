@@ -1,0 +1,90 @@
+:root {
+    --primary-yellow: #FFD700;
+    --primary-blue: #005DAA;
+    --light-bg: #F4F7F9;
+    --white: #ffffff;
+    --text-dark: #333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--light-bg); 
+    color: var(--text-dark);
+}
+
+/* Navigasi Rapi */
+header {
+    background: var(--white);
+    padding: 15px 5%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0; z-index: 1000;
+}
+
+nav { display: flex; justify-content: space-between; align-items: center; }
+
+.logo-container { display: flex; align-items: center; gap: 12px; }
+.main-logo { height: 45px; width: auto; }
+.logo-text .top { color: var(--primary-blue); font-size: 12px; font-weight: bold; display: block; }
+.logo-text .bottom { color: var(--primary-yellow); font-size: 15px; font-weight: bold; text-shadow: 0.5px 0.5px 0px #888; }
+
+.nav-links { list-style: none; display: flex; gap: 10px; }
+.nav-links li a { 
+    text-decoration: none; 
+    color: var(--primary-blue); 
+    font-weight: 600; 
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+/* Tombol Aktif & Hover */
+.nav-links li a:hover { background: rgba(0, 93, 170, 0.1); }
+.nav-links li a.active { background: var(--primary-blue); color: var(--white); }
+
+/* Container & Sections */
+.container { padding: 40px 5%; min-height: 80vh; }
+.section-title { text-align: center; margin-bottom: 30px; color: var(--primary-blue); }
+
+/* Card Styling (Proker & Struktur) */
+.proker-grid, .inti-grid, .bidang-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
+.proker-card, .card-member {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--primary-blue);
+}
+
+.proker-card span { display: block; font-weight: bold; color: var(--primary-blue); margin-bottom: 10px; font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
+.proker-card ul { list-style: none; padding-left: 5px; }
+.proker-card ul li { font-size: 14px; margin-bottom: 8px; position: relative; padding-left: 20px; }
+.proker-card ul li::before { content: "•"; color: var(--primary-yellow); position: absolute; left: 0; font-weight: bold; }
+
+/* Struktur Khusus */
+.card-member.gold { border-bottom-color: var(--primary-yellow); text-align: center; }
+.bidang-box { margin-top: 40px; padding: 20px; background: rgba(0,93,170,0.05); border-radius: 15px; }
+.bidang-box h3 { margin-bottom: 20px; color: var(--primary-blue); border-left: 5px solid var(--primary-yellow); padding-left: 10px; }
+
+/* Gallery & Modal sama seperti sebelumnya... */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.zoom-img { width: 100%; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+.modal-content { max-width: 90%; max-height: 80%; border: 5px solid white; }
+.close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+footer { text-align: center; padding: 30px; background: var(--primary-blue); color: white; }
+
+/* Responsive Mobile */
+@media (max-width: 600px) {
+    nav { flex-direction: column; gap: 15px; text-align: center; }
+    .nav-links { width: 100%; justify-content: center; }
+    .nav-links li a { padding: 6px 10px; font-size: 12px; }
+}
